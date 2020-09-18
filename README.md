@@ -20,7 +20,7 @@ Create an assets/locales folder at the root of your project and add your locales
 > like:
 ![Example app assets/locales](assets.png)
 
-### 2) Include Package and assets
+### 2) Include package and assets
 > Include latest dependency of flutter_locales
 ```
 dependencies:
@@ -37,13 +37,14 @@ flutter:
 ```
 
 
-### 3) Implement main app
+### 3) Initialize app
 
 > Replace your main app with
 ```
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Locales.init(['en', 'fa', 'ps']); // get last saved language
+  // remove await if you want to get app default language
 
   runApp(MyApp());
 }
