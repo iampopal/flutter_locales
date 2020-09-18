@@ -11,7 +11,7 @@
 - [x] Easily Change Locale with `LocaleNotifier.of(context).change('en')`
 
 ## Example App
-Look at Simple app at [GitHub](https://github.com/iampopal/flutter_locales/example).
+Look at a Simple app at [GitHub](https://github.com/iampopal/flutter_locales/example).
 
 ![Example App](simple.GIF)
 
