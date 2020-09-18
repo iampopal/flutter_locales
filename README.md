@@ -1,40 +1,34 @@
 # flutter_locales
 
-Localize your Flutter app within seconds to multiple locales
+**Localize your Flutter app within seconds to multiple locales**
 
 ## Why Flutter Locales
-[x] Change Locale Language within app
-[x] Save Locale Language After changed
-[x] Easily Get Translation with `LocaleText('key')`
+- [x] Easily Localize your app
+- [x] Change App Locale within app
+- [x] Save Locale Language After changed
+- [x] Get Last Changed locale on App starts
+- [x] Easily Get Translation with `LocaleText('key')` Widget
+- [x] Easily Change Locale with `LocaleNotifier.of(context).change('en')`
 
 ## Example App
-Do a look at Simple app at [GitHub](https://github.com/iampopal/flutter_locales/example).
+Look at Simple app at [GitHub](https://github.com/iampopal/flutter_locales/example).
 
 ![Example App](simple.GIF)
 
 ### 1) Create locales assets
-```
-> | android
-> | assets
->       | locales
->           | en.json
->           | fs.json
->           | ps.json
-> | ios
-> | lib
-      | main.dart
-```
+Create an assets/locales folder at the root of your project and add your locales json files. 
+> like:
 ![Example app assets/locales](assets.png)
 
 ### 2) Include Package and assets
-> Include latest dependency
+> Include latest dependency of flutter_locales
 ```
 dependencies:
   flutter:
     sdk: flutter
   flutter_locales:
 ```
-> Include assets
+> Include assets/locales/ folder
 ```
 flutter:
   uses-material-design: true
@@ -55,7 +49,7 @@ void main() async {
 }
 ```
 
-> Wrap MaterialApp with `LocaleBuilder`
+> Wrap your `MaterialApp` with `LocaleBuilder`
 ```
 class MyApp extends StatelessWidget {
   @override
@@ -73,9 +67,9 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
-* `LocaleBuilder` refresh the app you change app language
+* `LocaleBuilder` rebuild the app you change the app locale by `LocaleNotifier.of(context).change('ps')`
 
-## Change App Language 
+## Change App Locale
 `LocaleNotifier` Use To change app locale
 ```
 LocaleNotifier.of(context).change('ps')
@@ -83,13 +77,13 @@ LocaleNotifier.of(context).change('ps')
 - When you change app automatically saves at Locale
 - To get current locale call `LocaleNotifier.of(context).locale`
 
-## Translate Text
-`LocaleText` Use to translate a key
+## Locale Text
+`LocaleText` Widget Use to translate a key
 ```
 LocaleText(`welcome`);
 ```
 * `LocaleText` Translate a key to string 
-*  To get a key String call `Locales.string(constant, 'welcome')`
+*  To get a key translated call `Locales.string(context, 'welcome')`
 
 ## Getting Started
 This project is a starting point for a Dart
