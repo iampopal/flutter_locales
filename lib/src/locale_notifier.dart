@@ -15,7 +15,7 @@ class LocaleNotifier extends InheritedWidget {
     return context.dependOnInheritedWidgetOfExactType<LocaleNotifier>();
   }
 
-  changeLocale(String lng) => state.changeLocale(lng);
+  change(String lng) => state.changeLocale(lng);
   Locale get locale => state.locale;
 
   @override

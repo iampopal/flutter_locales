@@ -8,9 +8,12 @@ import 'preference_utils.dart';
 
 class Locales {
   static List<Locale> supportedLocales;
+
   static Future init(List<String> localeNames) async {
-    supportedLocales = localeNames.map((n) => Locale(n)).toList();
-    await PreferenceUtils.init();
+    try {
+      supportedLocales = localeNames.map((n) => Locale(n)).toList();
+      await PreferenceUtils.init();
+    } catch (e) {}
   }
 
   final Locale locale;
