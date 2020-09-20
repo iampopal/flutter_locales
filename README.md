@@ -1,6 +1,6 @@
 # flutter_locales
 
-**Localize your Flutter app within seconds to multiple locales**
+**Localize your Flutter app to multiple locales within seconds**
 
 ## Why Flutter Locales
 - [x] Easily Localize your app
@@ -17,7 +17,7 @@ Look at a Simple app at [GitHub](https://github.com/iampopal/flutter_locales/exa
 
 ### 1) Create locales assets
 Create an assets/locales folder at the root of your project and add your locales json files. 
-> like:
+**like:**
 ![Example app assets/locales](assets.png)
 
 ### 2) Include package and assets

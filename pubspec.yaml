@@ -1,7 +1,10 @@
 name: flutter_locales
-description: A new Flutter package project.
-version: 0.0.2
-homepage: https://popal.dev
+description: Easily localize your app to multiple languages
+version: 0.0.3
+homepage: https:popal.dev
+repository: https://github.com/iampopal/flutter_locales
+documentation: https://github.com/iampopal/flutter_locales
+issue_tracker: https://github.com/iampopal/flutter_locales/issues
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
