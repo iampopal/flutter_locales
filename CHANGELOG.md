@@ -1,3 +1,6 @@
+## [0.0.1+1] - Add release date.
+* Documentation improved
+
 ## [0.0.4] - Add release date.
 * Documentation improved
 

@@ -3,28 +3,27 @@
 **Localize your Flutter app to multiple locales within seconds**
 
 ## Why Flutter Locales
-- [x] Easily Localize your app
-- [x] Change App Locale within app
-- [x] Save Locale Language After changed
-- [x] Get Last Changed locale on App starts
-- [x] Easily Get Translation with `LocaleText('key')` Widget
-- [x] Easily Change Locale with `LocaleNotifier.of(context).change('en')`
+✅ Easily Localize your app <br />
+✅ Change App Locale within the app <br />
+✅ Get Last Changed locale on App starts <br />
+✅ Save Locale Language After changed buy `LocaleNotifier` <br />
+✅ Get Translation with `LocaleText('key')` Widget <br />
 
 ## Example App
 Look at a Simple app at [GitHub](https://github.com/iampopal/flutter_locales/tree/master/example).
 
 ![Example App](simple.GIF)
 
-### 1) Create locales assets
+## 1) Create locales assets
 Create an assets/locales folder at the root of your project and add your locales json files. 
 **like:**
 ![Example app assets/locales](assets.png)
 * your locale files name shall be name of the language 
   * like: 
-    > **en.json** For english locales
-    > **ps.json** for pashto locales
+    * **en.json** For english locales
+    * **ps.json** for pashto locales
 
-### 2) Include package and assets
+## 2) Include package and assets
 > Include latest dependency of flutter_locales
 ```
 dependencies:
@@ -41,7 +40,7 @@ flutter:
 ```
 
 
-### 3) Initialize app
+## 3) Initialize app
 
 > Replace your main app with
 ```
@@ -54,6 +53,7 @@ void main() async {
 }
 ```
   * `['en', 'fa', 'ps']` are language codes of `.json` files located in located in `assets/locales` folder   
+
 
 > Wrap your `MaterialApp` with `LocaleBuilder`
 ```
