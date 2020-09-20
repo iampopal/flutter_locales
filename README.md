@@ -19,6 +19,10 @@ Look at a Simple app at [GitHub](https://github.com/iampopal/flutter_locales/tre
 Create an assets/locales folder at the root of your project and add your locales json files. 
 **like:**
 ![Example app assets/locales](assets.png)
+* your locale files name shall be name of the language 
+  * like: 
+    > **en.json** For english locales
+    > **ps.json** for pashto locales
 
 ### 2) Include package and assets
 > Include latest dependency of flutter_locales
@@ -49,6 +53,7 @@ void main() async {
   runApp(MyApp());
 }
 ```
+  * `['en', 'fa', 'ps']` are language codes of `.json` files located in located in `assets/locales` folder   
 
 > Wrap your `MaterialApp` with `LocaleBuilder`
 ```
