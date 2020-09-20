@@ -1,6 +1,6 @@
 name: "flutter_locales"
 description: "Easily localize your app to multiple languages"
-version: "0.0.1+1"
+version: "1.0.0+01"
 homepage: "https://popal.dev"
 repository: "https://github.com/iampopal/flutter_locales"
 documentation: "https://github.com/iampopal/flutter_locales"

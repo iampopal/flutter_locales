@@ -43,7 +43,7 @@ flutter:
 ## 3) Initialize app
 
 > Replace your main app with
-```
+```dart
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Locales.init(['en', 'fa', 'ps']); // get last saved language
@@ -56,7 +56,7 @@ void main() async {
 
 
 > Wrap your `MaterialApp` with `LocaleBuilder`
-```
+```dart
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
