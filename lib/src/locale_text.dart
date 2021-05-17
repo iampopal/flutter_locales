@@ -6,14 +6,14 @@ class LocaleText extends StatelessWidget {
     this.k, {
     this.style,
     this.upperCase = false,
-    Key key,
+    Key? key,
     this.overflow,
     this.locale = true,
   }) : super(key: key);
   final String k;
-  final TextStyle style;
+  final TextStyle? style;
   final bool upperCase, locale;
-  final TextOverflow overflow;
+  final TextOverflow? overflow;
   @override
   Widget build(BuildContext context) {
     String s = !locale ? k : Locales.string(context, k);

@@ -53,9 +53,9 @@ void main() async {
 }
 ```
   * `['en', 'fa', 'ps']` are language codes of `.json` files located in located in `assets/locales` folder   
+  * You can replace these languages with your languages
 
-
-> Wrap your `MaterialApp` with `LocaleBuilder`
+> Wrap your `MaterialApp` with `LocaleBuilder` then provide locale to app
 ```dart
 class MyApp extends StatelessWidget {
   @override
@@ -66,30 +66,48 @@ class MyApp extends StatelessWidget {
         localizationsDelegates: Locales.delegates,
         supportedLocales: Locales.supportedLocales,
         locale: locale,
-        theme: ThemeData(primarySwatch: Colors.blue),
         home: HomeScreen(),
       ),
     );
   }
 }
 ```
-* `LocaleBuilder` rebuild the app you change the app locale by `LocaleNotifier.of(context).change('ps')`
-
-## Change App Locale
-`LocaleNotifier` Use To change app locale
-```
-LocaleNotifier.of(context).change('ps')
-```
-- When you change app automatically saves at Locale
-- To get current locale call `LocaleNotifier.of(context).locale`
+* `LocaleBuilder` rebuild the app you change the app locale by `Locales.change(context, 'fa')`
 
 ## Locale Text
 `LocaleText` Widget Use to translate a key
-```
+```dart
 LocaleText(`welcome`);
 ```
-* `LocaleText` Translate a key to string 
-*  To get a key translated call `Locales.string(context, 'welcome')`
+* `LocaleText` Translate a key to string
+
+### Locale String
+*  To get a key translated call 
+```dart
+Locales.string(context, 'welcome')
+
+// with extension
+context.localeString('welcome');
+```
+
+## Change App Locale
+To change app locale language
+```dart
+Locales.change(context, 'fa');
+
+//with extension
+context.changeLocale('fa');
+```
+- When you change app automatically saves at Locale
+
+### Current Locale Language
+- To get current locale call 
+```dart 
+Locales.currentLocale(context);
+
+//with extension
+context.currentLocale;
+```
 
 ## Getting Started
 This project is a starting point for a Dart

@@ -4,19 +4,19 @@ import 'preference_utils.dart';
 part 'locale_builder.dart';
 
 class LocaleNotifier extends InheritedWidget {
-  final _LocaleBuilderState state;
+  final _LocaleBuilderState? state;
 
   LocaleNotifier({
     this.state,
-    @required Widget child,
+    required Widget child,
   }) : super(child: child);
 
-  static LocaleNotifier of(BuildContext context) {
+  static LocaleNotifier? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<LocaleNotifier>();
   }
 
-  change(String lng) => state.changeLocale(lng);
-  Locale get locale => state.locale;
+  change(String lng) => state!.changeLocale(lng);
+  Locale? get locale => state!.locale;
 
   @override
   bool updateShouldNotify(LocaleNotifier oldWidget) => true;

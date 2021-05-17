@@ -2,8 +2,8 @@ import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PreferenceUtils {
-  SharedPreferences prefs;
-  static PreferenceUtils instance;
+  late SharedPreferences prefs;
+  static late PreferenceUtils instance;
   static Future init() async {
     PreferenceUtils.instance = PreferenceUtils();
     instance.prefs = await SharedPreferences.getInstance();
@@ -13,9 +13,9 @@ class PreferenceUtils {
     prefs.setString('language', lng);
   }
 
-  Locale get locale {
+  Locale? get locale {
     try {
-      final localeName = prefs.getString('language');
+      final localeName = prefs.getString('language')!;
       return Locale(localeName);
     } catch (e) {
       return null;

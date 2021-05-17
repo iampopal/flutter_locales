@@ -3,11 +3,18 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_locales/flutter_locales.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'preference_utils.dart';
 
 class Locales {
-  static List<Locale> supportedLocales;
+  final Locale locale;
+  Locales(this.locale);
+  static Locales? of(BuildContext context) {
+    return Localizations.of<Locales>(context, Locales);
+  }
+
+  static late List<Locale> supportedLocales;
 
   static Future init(List<String> localeNames) async {
     try {
@@ -16,11 +23,10 @@ class Locales {
     } catch (e) {}
   }
 
-  final Locale locale;
-  Locales(this.locale);
-  static Locales of(BuildContext context) {
-    return Localizations.of<Locales>(context, Locales);
-  }
+  static change(BuildContext context, String lang) =>
+      LocaleNotifier.of(context)!.change(lang);
+
+  static Locale? currentLocale(context) => LocaleNotifier.of(context)!.locale;
 
   static const LocalizationsDelegate<Locales> delegate = _LocalesDelegate();
 
@@ -49,7 +55,7 @@ class Locales {
   }
 
   static String string(BuildContext context, String key) {
-    return Localizations.of<Locales>(context, Locales).get(key);
+    return Localizations.of<Locales>(context, Locales)!.get(key);
   }
 }
 

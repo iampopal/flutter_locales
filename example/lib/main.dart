@@ -31,12 +31,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: LocaleText('localization')),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            LocaleText('welcome', style: TextStyle(fontSize: 32)),
-          ],
-        ),
+        child: LocaleText('welcome', style: TextStyle(fontSize: 32)),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -50,28 +45,32 @@ class HomeScreen extends StatelessWidget {
 }
 
 class SettingScreen extends StatelessWidget {
-  const SettingScreen({Key key}) : super(key: key);
+  const SettingScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: LocaleText('setting'),
-      ),
+      appBar: AppBar(title: Text(Locales.string(context, 'setting'))),
+      // with extension
+      // appBar: AppBar(title: Text(context.localeString('setting'))),
       body: Column(
         children: [
           ListTile(
-            onTap: () => LocaleNotifier.of(context).change('en'),
+            onTap: () => Locales.change(context, 'en'),
             title: LocaleText('english'),
           ),
           ListTile(
-            onTap: () => LocaleNotifier.of(context).change('ps'),
+            onTap: () => Locales.change(context, 'ps'),
             title: LocaleText('pashto'),
           ),
+          // to change language with Extension
           ListTile(
-            onTap: () => LocaleNotifier.of(context).change('fa'),
+            onTap: () => context.changeLocale('fa'),
             title: LocaleText('farsi'),
           ),
+          Text('Current Locale: ' +
+              Locales.currentLocale(context)!.languageCode),
+          // Text('Current Locale: ' + context.currentLocale.languageCode), // with Extension
         ],
       ),
     );
