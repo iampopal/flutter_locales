@@ -8,8 +8,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  ## for contributor testing
   flutter_locales:
     path: ../
+  ## for developer [uncomment the following line and remove above line]
+  # flutter_locales: 2.0.0
 
 dev_dependencies:
   flutter_test:

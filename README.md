@@ -13,6 +13,8 @@
 Look at a Simple app at [GitHub](https://github.com/iampopal/flutter_locales/tree/master/example).
 
 ![Example App](simple.GIF)
+## Video Tutorial
+[![Watch the video](video.jpg)](https://youtu.be/53sWTXgzR0U)
 
 ## 1) Create locales assets
 Create an assets/locales folder at the root of your project and add your locales json files. 
