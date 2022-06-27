@@ -1,21 +1,22 @@
 name: "flutter_locales"
 description: "Easily localize your app to multiple languages"
-version: "2.0.0"
+version: "2.0.2"
 homepage: "https://popal.dev"
 repository: "https://github.com/iampopal/flutter_locales"
 documentation: "https://github.com/iampopal/flutter_locales"
 issue_tracker: "https://github.com/iampopal/flutter_locales/issues"
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
-  flutter: ">=1.17.0 <2.0.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  shared_preferences: "^2.0.5"
+  shared_preferences: ^2.0.5
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

@@ -21,7 +21,8 @@ class _LocaleBuilderState extends State<LocaleBuilder> {
     return LocaleNotifier(
       state: this,
       child: Builder(
-        builder: (context) => widget.builder(LocaleNotifier.of(context)!.locale),
+        builder: (context) =>
+            widget.builder(LocaleNotifier.of(context)!.locale),
       ),
     );
   }

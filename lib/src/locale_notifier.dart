@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'preference_utils.dart';
+import './locales.dart';
 
 part 'locale_builder.dart';
 

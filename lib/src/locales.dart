@@ -1,17 +1,31 @@
 import 'dart:collection';
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_locales/flutter_locales.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'preference_utils.dart';
+import 'package:intl/intl.dart' as intl;
 
 class Locales {
+  static late Locale selectedLocale;
+  static String get lang => selectedLocale.languageCode;
+
+  static bool get selectedLocaleRtl => selectedLocale.languageCode != 'en';
+
   final Locale locale;
-  Locales(this.locale);
+  Locales(this.locale, {bool initialize = true}) {
+    if (initialize) selectedLocale = locale;
+  }
   static Locales? of(BuildContext context) {
     return Localizations.of<Locales>(context, Locales);
+  }
+
+  static bool isDirectionRTL(BuildContext context) {
+    return intl.Bidi.isRtlLanguage(
+        Localizations.localeOf(context).languageCode);
   }
 
   static late List<Locale> supportedLocales;
@@ -19,8 +33,12 @@ class Locales {
   static Future init(List<String> localeNames) async {
     try {
       supportedLocales = localeNames.map((n) => Locale(n)).toList();
-      await PreferenceUtils.init();
-    } catch (e) {}
+      final pref = await PreferenceUtils.init();
+      log('prefLocale: ${pref.locale}');
+      Locales.selectedLocale = pref.locale ?? supportedLocales.first;
+    } catch (e) {
+      log('error while loading locale: $e');
+    }
   }
 
   static change(BuildContext context, String lang) =>
@@ -50,12 +68,35 @@ class Locales {
     });
   }
 
-  String get(String key) {
-    return _localizedStings[key] ?? "\$$key";
+  String get(String key, [List<String>? params, List<String>? localeParams]) {
+    key = key.replaceAll(" ", "_").toLowerCase();
+    String s = _localizedStings[key] ?? "\$$key";
+    bool localizeParams = localeParams != null;
+    if (localeParams != null) {
+      params = localeParams;
+    }
+
+    if (params != null && params.isNotEmpty) {
+      for (int i = 0; i < params.length; i++) {
+        String hash = "#" * (i + 1);
+        final p = params[i];
+        final ps = localizeParams
+            ? _localizedStings[p.replaceAll(' ', '_').toLowerCase()]
+            : p;
+        if (ps != null) s = s.replaceFirst(hash, ps);
+      }
+      s = s.replaceAll("#", "");
+    }
+    return s;
   }
 
-  static String string(BuildContext context, String key) {
-    return Localizations.of<Locales>(context, Locales)!.get(key);
+  static String string(BuildContext context, String key,
+      {List<String>? params, List<String>? localeParams}) {
+    return Localizations.of<Locales>(context, Locales)!.get(
+      key,
+      params,
+      localeParams,
+    );
   }
 }
 
