@@ -1,6 +1,10 @@
+## [3.0.2] - may-18-2023
+
+* Updated Dependencies
+
 ## [3.0.0] - may-18-2023
 
-* Added Compatability with Flutter 3.10 and Dart 3
+* Added Compatibility with Flutter 3.10 and Dart 3
 
 ## [2.0.2] - july-27-2022
 
