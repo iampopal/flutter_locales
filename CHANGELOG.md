@@ -1,3 +1,7 @@
+## [3.0.0] - may-18-2023
+
+* Added Compatability with Flutter 3.10 and Dart 3
+
 ## [2.0.2] - july-27-2022
 
 * Builder improvements

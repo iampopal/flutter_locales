@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_locales/flutter_locales.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'preference_utils.dart';
 import 'package:intl/intl.dart' as intl;
 
 class Locales {
