@@ -12,7 +12,18 @@ class Locales {
   static late Locale selectedLocale;
   static String get lang => selectedLocale.languageCode;
 
-  static bool get selectedLocaleRtl => selectedLocale.languageCode != 'en';
+  static bool get selectedLocaleRtl => [
+        'ar', // Arabic
+        'fa', // Persian (Farsi)
+        'ps', // Pashto
+        'ur', // Urdu
+        'he', // Hebrew
+        'dv', // Divehi, Maldivian
+        'ku', // Kurdish (Sorani)
+        'yi', // Yiddish
+        'ug', // Uyghur
+        'sd', // Sindhi
+      ].contains(selectedLocale.languageCode);
 
   final Locale locale;
   Locales(this.locale, {bool initialize = true}) {
@@ -28,8 +39,12 @@ class Locales {
   }
 
   static late List<Locale> supportedLocales;
+  static String? assetsDirectory;
 
-  static Future init(List<String> localeNames) async {
+  static Future init(List<String> localeNames,
+      {String? assetsDirectory}) async {
+    Locales.assetsDirectory = assetsDirectory;
+
     try {
       supportedLocales = localeNames.map((n) => Locale(n)).toList();
       final pref = await PreferenceUtils.init();
@@ -58,7 +73,8 @@ class Locales {
 
   Future load() async {
     String lng = locale.languageCode;
-    String jsonString = await rootBundle.loadString("assets/locales/$lng.json");
+    String jsonString = await rootBundle
+        .loadString("${assetsDirectory ?? 'assets/locales'}/$lng.json");
 
     Map<String, dynamic> jsonMap = json.decode(jsonString);
 
