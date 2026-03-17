@@ -2,6 +2,10 @@
 
 The list of changes in Flutter Locales
 
+## [3.0.6] - Oct-22-2024
+
+* Updated Intel Package to 0.20.2
+
 ## [3.0.5] - Oct-22-2024
 
 * Added Locales.selectedLocaleRtl
